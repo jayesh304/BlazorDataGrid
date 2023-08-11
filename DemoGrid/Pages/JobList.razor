@@ -1,0 +1,28 @@
+﻿@page "/joblist"
+@using Radzen.Blazor
+@using Radzen;
+@using Radzen.Blazor.Rendering
+@inject HttpClient HttpClient
+<h3>Job Listing</h3>
+
+@if (cadJobs.Any() && cadJobs.Count > 0)
+{
+    <RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true"  AllowPaging="false" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                Data="@cadJobs" TItem="CadJobDto" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+    <Columns>
+            <RadzenDataGridColumn TItem="CadJobDto" Property="@nameof(CadJobDto.tcsFileName)" Filterable="false" Title="TcsFileName" Width="80px" TextAlign="TextAlign.Center" />
+            <RadzenDataGridColumn TItem="CadJobDto" Property="@nameof(CadJobDto.tcsFileName)" Filterable="false" Title="TcsFileName" Width="80px" TextAlign="TextAlign.Center" >
+          
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="CadJobDto" Property="@nameof(CadJobDto.cadSoftwareAutomationJobPriority)" Title="cadSoftwareAutomationJobPriority" Width="160px" />
+            <RadzenDataGridColumn TItem="CadJobDto" Property="@nameof(CadJobDto.cadSoftwareAutomationJobStatus)" Title="cadSoftwareAutomationJobStatus" Width="160px" />
+            <RadzenDataGridColumn TItem="CadJobDto" Property="@nameof(CadJobDto.cadSoftwareId)" Title="cadSoftwareId" Width="160px" />
+            <RadzenDataGridColumn TItem="CadJobDto" Property="@nameof(CadJobDto.createdBy)" Title="createdBy" Width="160px" />
+            <RadzenDataGridColumn TItem="CadJobDto" Property="@nameof(CadJobDto.environment)" Title="environment" Width="160px" />
+            <RadzenDataGridColumn TItem="CadJobDto" Property="@nameof(CadJobDto.configurationId)" Title="configurationId" Width="160px" />
+           
+        </Columns>
+
+</RadzenDataGrid>
+}
+
